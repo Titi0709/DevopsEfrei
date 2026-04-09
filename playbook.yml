@@ -1,0 +1,6 @@
+- name: Configure localhost
+  hosts: local
+  become: false
+  tasks:
+    - name: Gather facts
+      ansible.builtin.setup:

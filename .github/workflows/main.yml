@@ -11,10 +11,16 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Test Terraform
         run: terraform -v
 
       - name: Test Ansible
         run: ansible --version
+
+      - name: Ansible ping
+        run: ansible -i inventory.ini all -m ping
+
+      - name: Run playbook
+        run: ansible-playbook -i inventory.ini playbook.yml
