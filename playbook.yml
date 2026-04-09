@@ -1,6 +1,15 @@
 - name: Configure localhost
   hosts: local
-  become: false
+  become: true
+
   tasks:
     - name: Gather facts
       ansible.builtin.setup:
+
+    - name: Set timezone to Europe/Paris
+      ansible.builtin.timezone:
+        name: Europe/Paris
+
+    - name: Set timezone to Africa/Abidjan
+      ansible.builtin.timezone:
+        name: Africa/Abidjan
