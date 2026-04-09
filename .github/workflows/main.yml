@@ -10,8 +10,11 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Display message
-        run: echo "Runner GitHub opérationnel"
+      - name: Test Terraform
+        run: terraform -v
+
+      - name: Test Ansible
+        run: ansible --version
